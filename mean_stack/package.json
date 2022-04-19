@@ -1,0 +1,24 @@
+{
+  "name": "mean_stack",
+  "version": "1.0.0",
+  "description": "Node, Express, MongoDB, CRUD Restful API",
+  "main": "server.js",
+  "scripts": {
+    "start" :"node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoDB",
+    "rest",
+    "crud",
+    "api"
+  ],
+  "author": "Paul Vicino",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+  }
+}
