@@ -1,0 +1,18 @@
+TODO:
+
+add "Lifespan: " in front of lifespans
+reveal info then animation
+game over popup
+
+
+
+
+
+
+Done:
+last 8 filter
+Turn buttons into arrows
+centering
+Pictures
+max score
+better fonts/text
