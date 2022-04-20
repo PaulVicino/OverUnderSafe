@@ -7,20 +7,24 @@ import { AnimalLifeSpanService } from '../services/animal-life-span.service';
   selector: 'app-home',
   template: `
     <section class="hero is-primary is-bold is-fullheight">
-      <div class="hero-body has-text-centered" layout="row">
 
+      <br>
+      <br>
+      <p class="has-text-centered" style="font-size:5vw"> Guess if ??? is greater than or less than {{this.Animals[indexes[8]].lifespan}}. </p>
+
+      <div class="hero-body has-text-centered" layout="row">
         <div class="column">
           <figure class="image is-256x256 is-inline-block">
             <img *ngIf="this.Animals[indexes[8]].imagePath != undefined" src= {{this.Animals[indexes[8]].imagePath}} width="256" height="256">
           </figure>
           <p style="font-size:2vw" *ngIf="this.Animals[indexes[8]].name != undefined"> {{this.Animals[indexes[8]].name}} </p>
-          <p style="font-size:2vw" *ngIf="this.Animals[indexes[8]].lifespan != undefined"> {{this.Animals[indexes[8]].lifespan}} </p>
+          <p style="font-size:2vw" *ngIf="this.Animals[indexes[8]].lifespan != undefined"> Average Lifespan: {{this.Animals[indexes[8]].lifespan}} </p>
         </div>
 
         <div class="column" layout="column">
           <div>
 
-            <h1 class="title" style="font-size:2vw">
+            <h1 class="title" style="font-size:3vw">
                 Max Score: 
                 <br>
                 {{maxScore}}
@@ -28,7 +32,7 @@ import { AnimalLifeSpanService } from '../services/animal-life-span.service';
 
               <br>
 
-            <h1 class="title" style="font-size:2vw">
+            <h1 class="title" style="font-size:3vw">
               Score: 
               <br>
               {{score}}
@@ -60,7 +64,7 @@ import { AnimalLifeSpanService } from '../services/animal-life-span.service';
             <img *ngIf="this.Animals[indexes[9]].imagePath != undefined" src= {{this.Animals[indexes[9]].imagePath}} width="256" height="256">
           </figure>
           <p style="font-size:2vw" *ngIf="this.Animals[indexes[9]].name != undefined"> {{this.Animals[indexes[9]].name}} </p>
-          <p style="font-size:2vw"> ??? </p>
+          <p style="font-size:2vw"> Average Lifespan: ??? </p>
         </div>
 
       </div>
@@ -107,6 +111,7 @@ export class HomeComponent implements OnInit {
 
     this.indexes[9] = Math.floor(Math.random() * 125);
     while (this.Animals[this.indexes[9]].lifespan == this.Animals[this.indexes[8]].lifespan ||
+          this.indexes[9] == this.indexes[8] ||
           this.indexes[9] == this.indexes[7] || this.indexes[9] == this.indexes[6] || 
           this.indexes[9] == this.indexes[5] || this.indexes[9] == this.indexes[4] ||
           this.indexes[9] == this.indexes[3] || this.indexes[9] == this.indexes[2] ||
@@ -147,6 +152,7 @@ export class HomeComponent implements OnInit {
 
     this.indexes[9] = Math.floor(Math.random() * 125);
     while (this.Animals[this.indexes[9]].lifespan == this.Animals[this.indexes[8]].lifespan ||
+          this.indexes[9] == this.indexes[8] ||
           this.indexes[9] == this.indexes[7] || this.indexes[9] == this.indexes[6] || 
           this.indexes[9] == this.indexes[5] || this.indexes[9] == this.indexes[4] ||
           this.indexes[9] == this.indexes[3] || this.indexes[9] == this.indexes[2] ||
@@ -167,11 +173,8 @@ export class HomeComponent implements OnInit {
     }
     
     this.indexes[9] = Math.floor(Math.random() * 125);
-    if (this.Animals[this.indexes[9]].lifespan != undefined)
-    {
-      while (this.Animals[this.indexes[9]].lifespan != undefined && this.Animals[this.indexes[9]].lifespan == this.Animals[this.indexes[8]].lifespan)
-        this.indexes[9] = Math.floor(Math.random() * 125);
-    }
+    while (this.indexes[9] == this.indexes[8] || this.Animals[this.indexes[9]].lifespan == this.Animals[this.indexes[8]].lifespan)
+      this.indexes[9] = Math.floor(Math.random() * 125);
   }
 
   retrieveAnimalLifeSpans(): void {
