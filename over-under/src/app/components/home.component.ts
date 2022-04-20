@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
 
     if (num1 != undefined && num2 != undefined)
     {
-      if (num1 > num2)
+      if (num1 >= num2)
       {
         this.score = this.score + 1;
 
@@ -129,7 +129,7 @@ export class HomeComponent implements OnInit {
 
     if (num1 != undefined && num2 != undefined)
     {
-      if (num1 < num2)
+      if (num1 <= num2)
       {
         this.score = this.score + 1;
 
